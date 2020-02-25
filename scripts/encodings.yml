@@ -1,0 +1,25 @@
+# Encodings taken from https://www.daylight.com/dayhtml_tutorials/languages/smarts/smarts_examples.html
+# These are used to match certain functional groups
+- "[CX4]"
+- "[$([CX2](=C)=C)]"            # Allene group
+- "[$([CX3]=[CX3])]"            # Vinyl group
+- "[$([CX2]#C)]"                # Alkyne group
+- "[CX3]=[OX1]"                 # Generic carbonyl
+- "[OX1]=CN"                    # Carbonyl with nitrogen
+- "[CX3](=[OX1])C"              # Carbonyl with carbon
+- "[CX3H1](=O)[#6]"             # Aldehyde
+- "[NX3][CX3](=[OX1])[#6]"      # Amide
+- "[#6][CX3](=O)[#6]"           # ketone
+- "[OD2]([#6])[#6]"             # Ether
+- "[NX3;H2,H1;!$(NC=O)]"        # Amine; not amide
+- "[NX3,NX4+][CX4H]([*])[CX3](=[OX1])[O,N]"   # generic amino acid
+- "[$([NX3](=[OX1])(=[OX1])O),$([NX3+]([OX1-])(=[OX1])O)]"   # Nitrate group
+- "[NX1]#[CX2]"                 # Nitrile
+- "[CX1-]#[NX2+]"               # Isonitrile
+- "[$([NX3](=O)=O),$([NX3+](=O)[O-])][!#8]"      # Nitro group
+- "[#6][OX2H]"                  # Alcohol group
+- "[OX2H][CX3]=[OX1]"           # Carboxylic acid alcohol
+- "[OX2H][#6X3]=[#6]"           # Enol
+- "[OX2H][cX3]:[c]"             # Phenol
+- "[OX2,OX1-][OX2,OX1-]"        # Peroxide
+- "[$([cX3](:*):*),$([cX2+](:*):*)]"     # Aromatic sp2 carbon

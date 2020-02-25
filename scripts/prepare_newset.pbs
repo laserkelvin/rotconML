@@ -1,0 +1,14 @@
+#/bin/bash
+# ----------- Parameters --------- #
+#$ -S /bin/bash
+#$ -l mres=32G,h_data=5G,h_vmem=5G
+#$ -q lThC.q
+#$ -pe mthread 32
+#$ -cwd
+#$ -j y
+#$ -N data-newset
+#
+# -------- User Variables -------- #
+conda activate rotconml
+
+python prepare_newset.py
