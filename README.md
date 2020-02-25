@@ -50,6 +50,11 @@ performed. These scripts utilize GPUs to train the models, and the `wandb`
 Python package to track experiments. The two subfolders, `tensorflow` and
 `torch`, are implementations with those respective libraries.
 
+The product of these scripts are a series of PyTorch model weights that are
+saved as `pickle` files, which are the `state_dict` objects contained within
+PyTorch models. For every model, four models are produced corresponding to
+each of the compositions.
+
 ## `production`
 
 This is where  the demonstrations were done after the models are trained. There
@@ -69,6 +74,32 @@ and perform SMARTS substructure searches to determine which functional groups
 are undersampled, and uses this information to augment the final dataset by
 boosting creating noise-perturbed copies of existing examples.
 
+## Usage
+
+This git repository contains the bare code: due to the excessive data set sizes
+none of the data is stored on git.
+
+The `Makefile` is pretty self-explanatory, and streamlines a fair amount of
+the foundation work, along with `conda` environments.
+
+The core focus is actually in the PyTorch models - implementations described
+in the paper are actually based on these, instead of the Tensorflow ones. I
+kept these in for reference reasons, but these are not expected to run in
+production.
+
+There are four main models that are considered in the paper:
+
+1. `EightPickEncoder` = Spectroscopy decoder
+2. `EigenSMILESLSTMDecoder` = SMILES LSTM decoder
+3. `EigenFormulaDecoder` = Formula decoder
+4. `FunctionalGroupConv` = Functional group classifier
+
+These are trained independently, and for inference the "fifth" model is defined
+that controls the flow of everything; `ChainModel`. This class has several
+higher level methods compared to the other models, which loads the model
+parameters specific to one composition.
+
+
 ## License
 
 rotconML - a project on probabilistic molecule identification with PyTorch 
@@ -87,3 +118,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
