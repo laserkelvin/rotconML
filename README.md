@@ -2,6 +2,10 @@
 
 ## Identifying molecules with probabilistic deep learning
 
+![toc](toc_graphic.png)
+
+The paper is now published and online! [You can find the JPCA here](https://pubs.acs.org/doi/10.1021/acs.jpca.0c01376), and a preprint version on [ArXiV](https://arxiv.org/abs/2003.12388).
+
 ---
 
 # Aim
